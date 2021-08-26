@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cleaner id="custom.devtools">
+  <label>Custom - Developer Tools</label>
+  <description>Custom entries</description>
+
+  <option id="steam.webcache">
+    <label>Docker Installer Cache</label>
+    <description>Delete prior cached installers left by Docker Desktop.</description>
+    <warning>Deleting the install cache could limit your ability to repair your Docker install.</warning>
+    <action search="walk.all" command="delete" path="$USERPROFILE\AppData\Local\Docker Desktop Installer" />
+  </option>
+
+  <option id="vscode.cache">
+    <label>VS Code Cache</label>
+    <description>Delete web cache used by VS Code.</description>
+    <warning>Deleting the cache could slow down application usage.</warning>
+    <action search="walk.all" command="delete" path="$USERPROFILE\Roaming\Code\Cache" />
+  </option>
+
+</cleaner>
