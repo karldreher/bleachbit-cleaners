@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cleaner id="custom.epicgames.web">
+<cleaner id="custom.steam.web">
   <label>Custom</label>
-
   <description>Custom entries</description>
+
+  <option id="Steam">
+    <label>Steam Webcache</label>
+    <description>Delete the web cache kept by Steam.</description>
+    <warning>Deleting the cache could slow down application usage.</warning>
+    <action search="walk.all" command="delete" path="$USERPROFILE\AppData\Local\Steam\htmlcache\Cache" />
+  </option>
+
   <option id="Epic Games">
     <label>Epic Games Launcher Webcache</label>
     <description>Delete the web cache kept by Epic Games.</description>
     <warning>Deleting the cache could slow down application usage.</warning>
     <action search="walk.all" command="delete" path="$USERPROFILE\AppData\Local\EpicGamesLauncher\Saved\webcache" />
   </option>
+
 </cleaner>
