@@ -1,0 +1,44 @@
+name: Test XML
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  tests:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Install prerequisite libxml2-utils
+        run: sudo apt-get install -y -qq libxml2-utils
+
+      # Checks-out repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout this repository
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+          path: bleachbit-cleaners
+
+      - name: Checkout official bleachbit repository
+        uses: actions/checkout@v2
+        with:
+          path: bleachbit
+          repository: bleachbit/bleachbit
+        
+      - name: Run a one-line script
+        run: cp -v ./bleachbit/doc/cleaner_markup_language.xsd ./bleachbit-cleaners/Cleaners/cleaner_markup_language.xsd
+
+      - name: Conduct XML Test
+        run: |
+          for xml in $(ls -b *.xml)
+          do
+          xmllint $xml --schema cleaner_markup_language.xsd --noout
+          done
+        working-directory: ./bleachbit-cleaners/Cleaners
