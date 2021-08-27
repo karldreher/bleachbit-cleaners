@@ -1,4 +1,4 @@
-name: Test XML
+name: XML Tests
 
 on:
   push:

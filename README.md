@@ -1,4 +1,6 @@
 # bleachbit_cleaners
+
+
 This repo contains a collection of custom BleachBit cleaners I find helpful.  These are primarily used in the deletion of junk files.
 
 The cleaners within this repository are designed for use on Windows, using the [CleanerML](https://docs.bleachbit.org/cml/cleanerml.html) specification.
@@ -17,4 +19,8 @@ Using the files as provided, all will show up under the "Custom" section of Blea
 Script Coming Soon
 
 ## License 
-See [LICENSE.MD](LICENSE.MD)
+See [LICENSE](LICENSE)
+
+## FAQ
+
+See [FAQ.MD](FAQ.MD)
