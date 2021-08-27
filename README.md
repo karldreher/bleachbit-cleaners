@@ -1,4 +1,6 @@
-# bleachbit_cleaners
+# bleachbit-cleaners
+
+[![XML Tests](https://github.com/karldreher/bleachbit-cleaners/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/karldreher/bleachbit-cleaners/actions/workflows/main.yml)
 
 
 This repo contains a collection of custom BleachBit cleaners I find helpful.  These are primarily used in the deletion of junk files.
