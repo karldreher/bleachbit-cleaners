@@ -3,7 +3,7 @@
   <label>Custom - Developer Tools</label>
   <description>Custom entries</description>
 
-  <option id="steam.webcache">
+  <option id="docker.webcache">
     <label>Docker Installer Cache</label>
     <description>Delete prior cached installers left by Docker Desktop.</description>
     <warning>Deleting the install cache could limit your ability to repair your Docker install.</warning>
