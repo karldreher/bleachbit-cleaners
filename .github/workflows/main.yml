@@ -35,6 +35,6 @@ jobs:
         run: |
           for xml in $(ls -b *.xml)
           do
-          xmllint $xml --schema cleaner_markup_language.xsd
+          xmllint $xml --schema cleaner_markup_language.xsd --noout
           done
         working-directory: ./bleachbit-cleaners/Cleaners
