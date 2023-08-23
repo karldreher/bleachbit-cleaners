@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cleaner id="custom.music">
+  <label>Custom - Music</label>
+  <description>Custom entries</description>
+
+  <option id="itunes.webcache">
+    <label>ITunes Crash Reports</label>
+    <description>Delete crash reports held by ITunes.</description>
+    <warning>Crash reports will no longer be available.</warning>
+    <action search="walk.all" command="delete" path="$USERPROFILE\AppData\Roaming\Apple Computer\Logs\CrashReporter" />
+  </option>
+
+</cleaner>
