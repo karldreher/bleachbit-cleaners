@@ -18,23 +18,9 @@ jobs:
 
       - name: Checkout this repository
         uses: actions/checkout@v3
-        with:
-          repository: ${{ github.repository }}
-          path: bleachbit-cleaners
 
-      - name: Checkout official bleachbit repository
-        uses: actions/checkout@v3
-        with:
-          path: bleachbit
-          repository: bleachbit/bleachbit
-        
       - name: Copy markup xsd
-        run: cp -v ./bleachbit/doc/cleaner_markup_language.xsd ./bleachbit-cleaners/Cleaners/cleaner_markup_language.xsd
+        run: curl -OJ https://github.com/bleachbit/bleachbit/blob/v4.4.2/doc/cleaner_markup_language.xsd
 
       - name: Conduct XML Test
-        run: |
-          for xml in $(ls -b *.xml)
-          do
-          xmllint $xml --schema cleaner_markup_language.xsd --noout
-          done
-        working-directory: ./bleachbit-cleaners/Cleaners
+        run: xmllint ./Cleaners/*.xml --schema cleaner_markup_language.xsd --noout
