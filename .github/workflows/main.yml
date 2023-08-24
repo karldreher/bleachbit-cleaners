@@ -44,5 +44,5 @@ jobs:
                       exit 1
                       fi
               done
-              echo "All Cleaners have a different cleaner.id attribute"
+              echo "$f cleaner.id attribute is unique"
           done
