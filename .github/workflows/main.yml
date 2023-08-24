@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Copy markup xsd
-        run: curl -OJ https://github.com/bleachbit/bleachbit/blob/v4.4.2/doc/cleaner_markup_language.xsd
+        run: curl -OJ https://raw.githubusercontent.com/bleachbit/bleachbit/v4.4.2/doc/cleaner_markup_language.xsd
 
       - name: Conduct XML Test
         run: xmllint ./Cleaners/*.xml --schema cleaner_markup_language.xsd --noout
