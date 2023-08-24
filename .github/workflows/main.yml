@@ -24,3 +24,25 @@ jobs:
 
       - name: Conduct XML Test
         run: xmllint ./Cleaners/*.xml --schema cleaner_markup_language.xsd --noout
+
+      - name: Ensure no XML has the same cleaner.id
+        run: |
+          # ensure that no XML files in Cleaners directory have the same cleaner.id attribute as other files
+          for f in Cleaners/*.xml; do
+              x=$(xmllint --xpath "//cleaner/@id" $f)
+              # For the files that are not f, check if they have the same cleaner.id attribute
+
+              for g in Cleaners/*.xml; do
+                  if [ "$f" == "$g" ]; then
+                      # If the file is the same as f, skip it
+                      continue
+                  fi
+
+                  y=$(xmllint --xpath "//cleaner/@id" $g)
+                  if [ "$x" == "$y" ]; then
+                      echo "Error: $f and $g have the same cleaner.id attribute"
+                      exit 1
+                      fi
+              done
+              echo "All Cleaners have a different cleaner.id attribute"
+          done
